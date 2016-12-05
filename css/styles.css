@@ -16,14 +16,14 @@ body {
 .body-section {
   display: flex;
   flex: 1;
-  background-color: red; }
+  background-color: #124e78; }
 
 .header-section {
   height: 75px;
-  background-color: green; }
+  background-color: #f2bb05; }
 
 .footer-section {
   height: 50px;
-  background-color: blue; }
+  background-color: #f0f0c9; }
 
 /*# sourceMappingURL=styles.css.map */
