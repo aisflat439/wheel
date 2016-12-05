@@ -1,11 +1,17 @@
 window.onload = function(){
   setupListeners();
-  console.log("omggmo");
 }
 
 function setupListeners(){
-  document.getElementById("button").addEventListener("click", function(){
-    grabLyric();
+  document.getElementById("play-button").addEventListener("click", function(){
+    var lyric = grabLyric();
+    for (var letter in lyric){
+      // console.log(lyric[letter]);
+      var newElement = document.createElement("div")
+      var content = document.createTextNode(lyric[letter]);
+      newElement.appendChild(content);
+      document.getElementById("lyrics-area").appendChild(newElement);
+    }
   });
 }
 
@@ -40,9 +46,11 @@ function grabLyric(){
   } else {
     var l = new Lyric(choice, tayLyricsObject[getRandomNumber(0,4)]);
   }
-  console.log(l.getLyricAsArray());
+  return l.getLyricAsArray();
 }
 
+
+// Utitlity functions
 function getRandomNumber(min, max){
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }

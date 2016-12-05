@@ -1,5 +1,6 @@
 .body-section{
   display: flex;
+  flex-direction: row;
   flex: 1;
   background-color: $background-color-dark;
 }

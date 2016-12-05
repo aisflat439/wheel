@@ -10,11 +10,19 @@ html {
   min-height: 100vh;
   min-width: 100%; }
 
-body {
-  margin: 0px; }
+body, ul, li {
+  margin: 0px;
+  padding: 0px; }
+
+ul {
+  list-style: none; }
+
+li {
+  text-decoration: none; }
 
 .body-section {
   display: flex;
+  flex-direction: row;
   flex: 1;
   background-color: #124e78; }
 
