@@ -4,4 +4,26 @@
 html {
   box-sizing: border-box; }
 
+.main-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-width: 100%; }
+
+body {
+  margin: 0px; }
+
+.body-section {
+  display: flex;
+  flex: 1;
+  background-color: red; }
+
+.header-section {
+  height: 75px;
+  background-color: green; }
+
+.footer-section {
+  height: 50px;
+  background-color: blue; }
+
 /*# sourceMappingURL=styles.css.map */

@@ -1,7 +1,7 @@
 {
 "version": 3,
-"mappings": "AAAA,oBAAqB;EACnB,UAAU,EAAE,OAAO;;AAErB,IAAK;EACH,UAAU,EAAE,UAAU",
-"sources": ["../stylsheets/styles.scss"],
+"mappings": "AAAA,oBAAqB;EACnB,UAAU,EAAE,OAAO;;AAErB,IAAK;EACH,UAAU,EAAE,UAAU;;AAGxB,eAAgB;EACd,OAAO,EAAE,IAAI;EACb,cAAc,EAAE,MAAM;EACtB,UAAU,EAAE,KAAK;EACjB,SAAS,EAAE,IAAI;;ACXjB,IAAK;EACH,MAAM,EAAE,GAAG;;ACDb,aAAa;EACX,OAAO,EAAE,IAAI;EACb,IAAI,EAAE,CAAC;EACP,gBAAgB,EAAE,GAAG;;ACHvB,eAAe;EACb,MAAM,EAAE,IAAI;EACZ,gBAAgB,EAAE,KAAK;;ACFzB,eAAe;EACb,MAAM,EAAE,IAAI;EACZ,gBAAgB,EAAE,IAAI",
+"sources": ["../stylsheets/styles.scss","../stylsheets/resets.scss","../stylsheets/_body-section.scss","../stylsheets/_header-section.scss","../stylsheets/_footer-section.scss"],
 "names": [],
 "file": "styles.css"
 }
