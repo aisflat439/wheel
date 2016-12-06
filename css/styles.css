@@ -22,9 +22,26 @@ li {
 
 .body-section {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex: 1;
   background-color: #124e78; }
+
+.lyric-letter-container {
+  flex: 2;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center; }
+
+.lyric-letter {
+  background-color: #f0f0c9;
+  border: 2px yellow solid;
+  font-size: 2em;
+  padding: 2%; }
+
+.guess-area-container {
+  flex: 1; }
 
 .header-section {
   height: 75px;

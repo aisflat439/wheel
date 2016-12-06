@@ -5,13 +5,7 @@ window.onload = function(){
 function setupListeners(){
   document.getElementById("play-button").addEventListener("click", function(){
     var lyric = grabLyric();
-    for (var letter in lyric){
-      // console.log(lyric[letter]);
-      var newElement = document.createElement("div")
-      var content = document.createTextNode(lyric[letter]);
-      newElement.appendChild(content);
-      document.getElementById("lyrics-area").appendChild(newElement);
-    }
+    createLetterBoxes(lyric);
   });
 }
 
@@ -19,14 +13,14 @@ tayLyricsObject = {
   0: "twenty stiches in a hospital room",
   1: "all i know is that you drove us off the road",
   2: "And the saddest fear comes creeping in",
-  3: "I'm dying to see how this one ends",
-  4: "If you love like that blood runs cold",
+  3: "i'm dying to see how this one ends",
+  4: "if you love like that blood runs cold",
 }
 brLyricsObject = {
   0: "there's a flower behind the window",
   1: "your closet is a mess, and your backyard's falling down",
-  2: "How many angels can you fit upon a match?",
-  3: "But I'm not gonna lie or sell my soul",
+  2: "how many angels can you fit upon a match?",
+  3: "but I'm not gonna lie or sell my soul",
   4: "we cling to you like crazy glue"
 }
 
@@ -47,6 +41,20 @@ function grabLyric(){
     var l = new Lyric(choice, tayLyricsObject[getRandomNumber(0,4)]);
   }
   return l.getLyricAsArray();
+}
+
+function createLetterBoxes(lyric){
+  var existing = document.getElementById("lyrics-area");
+  while (existing.hasChildNodes()){
+    existing.removeChild(existing.lastChild);
+  }
+  for (var letter in lyric){
+    var newElement = document.createElement("div");
+    newElement.className = "lyric-letter";
+    var content = document.createTextNode(lyric[letter]);
+    newElement.appendChild(content);
+    document.getElementById("lyrics-area").appendChild(newElement);
+  }
 }
 
 

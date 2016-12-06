@@ -1,6 +1,26 @@
 .body-section{
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex: 1;
   background-color: $background-color-dark;
+}
+
+.lyric-letter-container {
+  flex: 2;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.lyric-letter {
+  background-color: $background-color-main;
+  border: 2px yellow solid;
+  font-size: 2em;
+  padding: 2%;
+}
+
+.guess-area-container {
+  flex: 1;
 }
