@@ -1,12 +1,23 @@
+var lyric;
+
 window.onload = function(){
   setupListeners();
 }
 
 function setupListeners(){
-  document.getElementById("play-button").addEventListener("click", function(){
-    var lyric = grabLyric();
-    createLetterBoxes(lyric);
+  document.getElementById("play-button").addEventListener("click", () => {
+    lyric = generateLyric();
+    createLetterBoxes(lyric.getLyricAsArray());
   });
+  document.getElementById("check-letter").addEventListener("click", () =>{
+    var letter = document.getElementById("user-guess").value;
+    if(lyric.checkLyric(letter)){
+      console.log("OMGGMO");
+    } else {
+      console.log("DERRRRP false");
+    }
+
+  })
 }
 
 tayLyricsObject = {
@@ -31,16 +42,25 @@ function Lyric(value, string){
   this.getLyricAsArray = function(){
     return this.songLyric.split("");
   }
+
+  this.checkLyric = function(letter){
+    for (var i = 0; i < this.songLyric.length; i++) {
+      if (this.songLyric.charAt(i) == letter.charAt(0)) {
+        return true;
+      }
+    }
+    return false;
+  }
 }
 
-function grabLyric(){
+function generateLyric(){
   var choice = Math.random() < 0.5 ? 1 : 2;
   if (choice == 1) {
     var l = new Lyric(choice, brLyricsObject[getRandomNumber(0,4)]);
   } else {
     var l = new Lyric(choice, tayLyricsObject[getRandomNumber(0,4)]);
   }
-  return l.getLyricAsArray();
+  return l;
 }
 
 function createLetterBoxes(lyric){

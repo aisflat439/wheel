@@ -41,7 +41,10 @@ li {
   padding: 2%; }
 
 .guess-area-container {
-  flex: 1; }
+  flex: 1;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center; }
 
 .header-section {
   height: 75px;
