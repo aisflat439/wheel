@@ -20,7 +20,15 @@ function setupListeners(){
       updateIncorrectLetters(letter);
     }
 
-  })
+  });
+  document.getElementById("check-solution").addEventListener("click", () => {
+    var guess = document.getElementById("solve-guess").value;
+    if (guess == lyric.songLyric) {
+      console.log("OMGGGGGGGGGGGG you win");
+    } else {
+      console.log("Oiiiiiiie");
+    }
+  });
 }
 
 tayLyricsObject = {
