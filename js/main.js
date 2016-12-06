@@ -10,11 +10,17 @@ function setupListeners(){
     createLetterBoxes(lyric.getLyricAsArray());
   });
   document.getElementById("check-letter").addEventListener("click", () =>{
+    if (lyric == undefined){
+      alert("You cant guess a letter without starting a game");
+    }
     var letter = document.getElementById("user-guess").value;
     if(lyric.checkLyric(letter)){
       console.log("OMGGMO");
+      //update ui with for correct letters
+      updateLetterOnBoard(letter);
     } else {
       console.log("DERRRRP false");
+      //update ui for wrong letters
     }
 
   })
@@ -74,6 +80,17 @@ function createLetterBoxes(lyric){
     var content = document.createTextNode(lyric[letter]);
     newElement.appendChild(content);
     document.getElementById("lyrics-area").appendChild(newElement);
+  }
+}
+
+function updateLetterOnBoard(letter) {
+  var lettersOnBoard = document.getElementsByClassName("lyric-letter");
+  for (var i = 0; i < lettersOnBoard.length; i++){
+    if (lettersOnBoard[i].innerHTML == letter){
+      lettersOnBoard[i].style.backgroundColor = "green";
+    } else {
+      
+    }
   }
 }
 
