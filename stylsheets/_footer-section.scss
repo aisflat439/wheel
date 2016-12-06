@@ -2,3 +2,20 @@
   height: 50px;
   background-color: $background-color-main;
 }
+
+.footer{
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+
+.footer-info{
+  font-variant: small-caps;
+  font-weight: lighter;
+  font-size: .8em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  color: $font-color-base;
+}

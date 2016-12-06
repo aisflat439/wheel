@@ -29,6 +29,10 @@ function setupListeners(){
       console.log("Oiiiiiiie");
     }
   });
+  var footer = document.getElementsByClassName("footer-info")
+  footer[1].addEventListener("click", ()=> {
+    window.open("https://github.com/aisflat439");
+  })
 }
 
 tayLyricsObject = {

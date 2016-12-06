@@ -64,4 +64,19 @@ li {
   height: 50px;
   background-color: #f0f0c9; }
 
+.footer {
+  display: flex;
+  flex-direction: row;
+  height: 100%; }
+
+.footer-info {
+  font-variant: small-caps;
+  font-weight: lighter;
+  font-size: .8em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  color: #d74e09; }
+
 /*# sourceMappingURL=styles.css.map */
