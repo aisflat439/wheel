@@ -15,12 +15,9 @@ function setupListeners(){
     }
     var letter = document.getElementById("user-guess").value;
     if(lyric.checkLyric(letter)){
-      console.log("OMGGMO");
-      //update ui with for correct letters
-      updateLetterOnBoard(letter);
+      updateCorrectLetters(letter);
     } else {
-      console.log("DERRRRP false");
-      //update ui for wrong letters
+      updateIncorrectLetters(letter);
     }
 
   })
@@ -83,17 +80,24 @@ function createLetterBoxes(lyric){
   }
 }
 
-function updateLetterOnBoard(letter) {
+function updateCorrectLetters(letter) {
   var lettersOnBoard = document.getElementsByClassName("lyric-letter");
-  for (var i = 0; i < lettersOnBoard.length; i++){
+  for (let i = 0; i < lettersOnBoard.length; i++){
     if (lettersOnBoard[i].innerHTML == letter){
       lettersOnBoard[i].style.backgroundColor = "green";
-    } else {
-      
     }
   }
 }
 
+function updateIncorrectLetters(letter){
+  var wrongAnswers = document.getElementsByClassName("used-letter-container");
+
+  var newElement = document.createElement("div");
+  newElement.className = "used-letter";
+  var content = document.createTextNode(letter);
+  newElement.appendChild(content);
+  wrongAnswers[0].appendChild(newElement);
+}
 
 // Utitlity functions
 function getRandomNumber(min, max){
