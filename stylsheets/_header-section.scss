@@ -1,4 +1,21 @@
 .header-section{
+  display: flex;
   height: 75px;
   background-color: $background-color-alert;
+
+  nav, ul {
+    display: flex;
+    flex: 1;
+  }
+}
+
+.header-section li{
+  color: $background-color-dark;
+  font-size: 2.1em;
+  font-weight: bold;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex: 3;
+  text-shadow: 2px 0 0 $background-color-main, -2px 0 0 $background-color-main, 0 2px 0 $background-color-main, 0 -2px 0 $background-color-main, 1px 1px $background-color-main, -1px -1px 0 $background-color-main, 1px -1px 0 $background-color-main, -1px 1px 0 $background-color-main;
 }
