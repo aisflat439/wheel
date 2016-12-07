@@ -35,11 +35,18 @@ li {
   justify-content: center;
   align-items: center; }
 
-.lyric-letter {
+.lyric-letter, .used-letter {
+  color: #f0f0c9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #f2bb05;
   background-color: #f0f0c9;
-  border: 2px yellow solid;
-  font-size: 2em;
-  padding: 2%; }
+  box-shadow: 0 4px 8px 0 #181818;
+  font-size: 3em;
+  width: 70px;
+  height: 100px;
+  margin: .5%; }
 
 .guess-area-container {
   flex: 1;
@@ -52,10 +59,7 @@ li {
   flex-direction: row; }
 
 .used-letter {
-  background-color: red;
-  height: 30px;
-  padding: 2%;
-  margin: 3px; }
+  color: #6e0e0a; }
 
 .header-section {
   display: flex;

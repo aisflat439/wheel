@@ -5,10 +5,12 @@ window.onload = function(){
 }
 
 function setupListeners(){
+
   document.getElementById("play-button").addEventListener("click", () => {
     lyric = generateLyric();
     createLetterBoxes(lyric.getLyricAsArray());
   });
+
   document.getElementById("check-letter").addEventListener("click", () =>{
     if (lyric == undefined){
       alert("You cant guess a letter without starting a game");
@@ -22,17 +24,19 @@ function setupListeners(){
     }
     clearGuess(guessElement);
   });
+
   document.getElementById("check-solution").addEventListener("click", () => {
     var guessElement = document.getElementById("solve-guess")
     var guess = guessElement.value;
     if (guess == lyric.songLyric) {
       clearGuess(guessElement);
-      console.log("OMGGGGGGGGGGGG you win");
+      updateSolvePuzzle();
     } else {
       clearGuess(guessElement);
       console.log("Oiiiiiiie");
     }
   });
+
   var footer = document.getElementsByClassName("footer-info")
   footer[1].addEventListener("click", ()=> {
     window.open("https://github.com/aisflat439");
@@ -91,6 +95,10 @@ function createLetterBoxes(lyric){
     var newElement = document.createElement("div");
     newElement.className = "lyric-letter";
     var content = document.createTextNode(lyric[letter]);
+    if (lyric[letter] == " "){
+      newElement.style.visibility = "hidden";
+      newElement.style.width = "25px";
+    }
     newElement.appendChild(content);
     document.getElementById("lyrics-area").appendChild(newElement);
   }
@@ -100,8 +108,15 @@ function updateCorrectLetters(letter) {
   var lettersOnBoard = document.getElementsByClassName("lyric-letter");
   for (let i = 0; i < lettersOnBoard.length; i++){
     if (lettersOnBoard[i].innerHTML.toLowerCase() == letter.toLowerCase()){
-      lettersOnBoard[i].style.backgroundColor = "green";
+      lettersOnBoard[i].style.color = "rgba(110, 14, 10, 1)";
     }
+  }
+}
+
+function updateSolvePuzzle() {
+  var lettersOnBoard = document.getElementsByClassName("lyric-letter");
+  for (let i = 0; i < lettersOnBoard.length; i++){
+    lettersOnBoard[i].style.color = "rgba(110, 14, 10, 1)";
   }
 }
 

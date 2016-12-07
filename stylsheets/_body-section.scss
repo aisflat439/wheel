@@ -14,11 +14,18 @@
   align-items: center;
 }
 
-.lyric-letter {
+.lyric-letter,.used-letter {
+  color: $font-color-lightest;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid $background-color-alert;
   background-color: $background-color-main;
-  border: 2px yellow solid;
-  font-size: 2em;
-  padding: 2%;
+  box-shadow: 0 4px 8px 0 $background-color-darkest;
+  font-size: 3em;
+  width: 70px;
+  height: 100px;
+  margin: .5%;
 }
 
 .guess-area-container {
@@ -34,8 +41,5 @@
 }
 
 .used-letter {
-  background-color: red;
-  height: 30px;
-  padding: 2%;
-  margin: 3px;
+  color: $font-color-alert;
 }
