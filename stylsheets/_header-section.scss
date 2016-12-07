@@ -1,7 +1,9 @@
 .header-section{
   display: flex;
   height: 75px;
-  background-color: $background-color-alert;
+  background-color: $background-color-navbar;
+  border-bottom: $background-color-alert 2px solid;
+  border-top: $background-color-alert 2px solid;
 
   nav, ul {
     display: flex;
@@ -10,12 +12,16 @@
 }
 
 .header-section li{
-  color: $background-color-dark;
-  font-size: 2.1em;
-  font-weight: bold;
+  color: $font-color-lightest;
+  font-size: 3em;
   justify-content: center;
   align-items: center;
   display: flex;
   flex: 3;
-  text-shadow: 2px 0 0 $background-color-main, -2px 0 0 $background-color-main, 0 2px 0 $background-color-main, 0 -2px 0 $background-color-main, 1px 1px $background-color-main, -1px -1px 0 $background-color-main, 1px -1px 0 $background-color-main, -1px 1px 0 $background-color-main;
+}
+
+#play-button {
+  background-color: $background-color-dark;
+  margin: 4px;
+  border: 4px solid $background-color-main;
 }

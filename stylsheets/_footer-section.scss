@@ -1,6 +1,7 @@
 .footer-section{
   height: 50px;
   background-color: $background-color-main;
+  border-top: $background-color-navbar 2px solid
 }
 
 .footer{
@@ -11,7 +12,6 @@
 
 .footer-info{
   font-variant: small-caps;
-  font-weight: lighter;
   font-size: .8em;
   display: flex;
   justify-content: center;

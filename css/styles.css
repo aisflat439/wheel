@@ -12,7 +12,8 @@ html {
 
 body, ul, li {
   margin: 0px;
-  padding: 0px; }
+  padding: 0px;
+  font-family: "Roboto"; }
 
 ul {
   list-style: none; }
@@ -59,24 +60,30 @@ li {
 .header-section {
   display: flex;
   height: 75px;
-  background-color: #f2bb05; }
+  background-color: #d74e09;
+  border-bottom: #f2bb05 2px solid;
+  border-top: #f2bb05 2px solid; }
   .header-section nav, .header-section ul {
     display: flex;
     flex: 1; }
 
 .header-section li {
-  color: #124e78;
-  font-size: 2.1em;
-  font-weight: bold;
+  color: #f0f0c9;
+  font-size: 3em;
   justify-content: center;
   align-items: center;
   display: flex;
-  flex: 3;
-  text-shadow: 2px 0 0 #f0f0c9, -2px 0 0 #f0f0c9, 0 2px 0 #f0f0c9, 0 -2px 0 #f0f0c9, 1px 1px #f0f0c9, -1px -1px 0 #f0f0c9, 1px -1px 0 #f0f0c9, -1px 1px 0 #f0f0c9; }
+  flex: 3; }
+
+#play-button {
+  background-color: #124e78;
+  margin: 4px;
+  border: 4px solid #f0f0c9; }
 
 .footer-section {
   height: 50px;
-  background-color: #f0f0c9; }
+  background-color: #f0f0c9;
+  border-top: #d74e09 2px solid; }
 
 .footer {
   display: flex;
@@ -85,7 +92,6 @@ li {
 
 .footer-info {
   font-variant: small-caps;
-  font-weight: lighter;
   font-size: .8em;
   display: flex;
   justify-content: center;
