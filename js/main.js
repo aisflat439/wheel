@@ -13,19 +13,23 @@ function setupListeners(){
     if (lyric == undefined){
       alert("You cant guess a letter without starting a game");
     }
-    var letter = document.getElementById("user-guess").value;
+    var guessElement = document.getElementById("user-guess");
+    var letter = guessElement.value;
     if(lyric.checkLyric(letter)){
       updateCorrectLetters(letter);
     } else {
       updateIncorrectLetters(letter);
     }
-
+    clearGuess(guessElement);
   });
   document.getElementById("check-solution").addEventListener("click", () => {
-    var guess = document.getElementById("solve-guess").value;
+    var guessElement = document.getElementById("solve-guess")
+    var guess = guessElement.value;
     if (guess == lyric.songLyric) {
+      clearGuess(guessElement);
       console.log("OMGGGGGGGGGGGG you win");
     } else {
+      clearGuess(guessElement);
       console.log("Oiiiiiiie");
     }
   });
@@ -36,18 +40,18 @@ function setupListeners(){
 }
 
 tayLyricsObject = {
-  0: "twenty stiches in a hospital room",
-  1: "all i know is that you drove us off the road",
+  0: "Twenty stiches in a hospital room",
+  1: "All I know is that you drove us off the road",
   2: "And the saddest fear comes creeping in",
-  3: "i'm dying to see how this one ends",
-  4: "if you love like that blood runs cold",
+  3: "I'm dying to see how this one ends",
+  4: "If you love like that blood runs cold",
 }
 brLyricsObject = {
-  0: "there's a flower behind the window",
-  1: "your closet is a mess, and your backyard's falling down",
-  2: "how many angels can you fit upon a match?",
-  3: "but I'm not gonna lie or sell my soul",
-  4: "we cling to you like crazy glue"
+  0: "There's a flower behind the window",
+  1: "Your closet is a mess, and your backyard's falling down",
+  2: "How many angels can you fit upon a match",
+  3: "But I'm not gonna lie or sell my soul",
+  4: "We cling to you like crazy glue"
 }
 
 function Lyric(value, string){
@@ -60,7 +64,7 @@ function Lyric(value, string){
 
   this.checkLyric = function(letter){
     for (var i = 0; i < this.songLyric.length; i++) {
-      if (this.songLyric.charAt(i) == letter.charAt(0)) {
+      if (this.songLyric.charAt(i).toLowerCase() == letter.charAt(0).toLowerCase()) {
         return true;
       }
     }
@@ -95,7 +99,7 @@ function createLetterBoxes(lyric){
 function updateCorrectLetters(letter) {
   var lettersOnBoard = document.getElementsByClassName("lyric-letter");
   for (let i = 0; i < lettersOnBoard.length; i++){
-    if (lettersOnBoard[i].innerHTML == letter){
+    if (lettersOnBoard[i].innerHTML.toLowerCase() == letter.toLowerCase()){
       lettersOnBoard[i].style.backgroundColor = "green";
     }
   }
@@ -109,6 +113,10 @@ function updateIncorrectLetters(letter){
   var content = document.createTextNode(letter);
   newElement.appendChild(content);
   wrongAnswers[0].appendChild(newElement);
+}
+
+function clearGuess(element){
+  element.value = "";
 }
 
 // Utitlity functions
