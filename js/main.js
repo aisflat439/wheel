@@ -15,25 +15,26 @@ function setupListeners(){
 
   document.getElementById("check-letter").addEventListener("click", () =>{
     var guessElement = document.getElementById("user-guess");
-    var letter = guessElement.value;
-    if(lyric.checkLyric(letter)){
-      updateCorrectLetters(letter);
+    var solveElement = document.getElementById("solve-guess");
+
+    if (guessElement.value !== ""){
+      var letter = guessElement.value;
+      if(lyric.checkLyric(letter)){
+        updateCorrectLetters(letter);
+      } else {
+        updateIncorrectLetters(letter);
+      }
     } else {
-      updateIncorrectLetters(letter);
+      var guess = solveElement.value;
+      if (guess.toLowerCase() == lyric.songLyric.toLowerCase()) {
+        clearGuess(solveElement);
+        updateSolvePuzzle();
+      } else {
+        clearGuess(solveElement);
+        // make something that happens when you're wrong
+      }
     }
     clearGuess(guessElement);
-  });
-
-  document.getElementById("check-solution").addEventListener("click", () => {
-    var guessElement = document.getElementById("solve-guess")
-    var guess = guessElement.value;
-    if (guess == lyric.songLyric) {
-      clearGuess(guessElement);
-      updateSolvePuzzle();
-    } else {
-      clearGuess(guessElement);
-      console.log("Oiiiiiiie");
-    }
   });
 
   var footer = document.getElementsByClassName("footer-info")
@@ -115,6 +116,7 @@ function updateCorrectLetters(letter) {
 }
 
 function updateSolvePuzzle() {
+  console.log("I'm running");
   var lettersOnBoard = document.getElementsByClassName("lyric-letter");
   for (let i = 0; i < lettersOnBoard.length; i++){
     lettersOnBoard[i].style.color = "rgba(110, 14, 10, 1)";
@@ -145,3 +147,20 @@ function clearGuess(element){
 function getRandomNumber(min, max){
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+
+// document.getElementById("check-letter").addEventListener("click", () =>{
+//   var guessElement = document.getElementById("user-guess");
+//   // var solveElement = document.getElementById("solve-guess");
+//   //
+//   // if (guessElement.value === undefined){
+//   //
+//   // }
+//
+//   var letter = guessElement.value;
+//   if(lyric.checkLyric(letter)){
+//     updateCorrectLetters(letter);
+//   } else {
+//     updateIncorrectLetters(letter);
+//   }
+//   clearGuess(guessElement);
+// });
