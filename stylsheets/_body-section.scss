@@ -6,7 +6,7 @@
 }
 
 .lyric-letter-container {
-  flex: 2;
+  flex: 5;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -29,17 +29,47 @@
 }
 
 .guess-area-container {
+  display: flex;
   flex: 1;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
 }
 
 .used-letter-container {
+  flex: 2;
+  min-height: 100px;
   display: flex;
   flex-direction: row;
+  justify-content: center;
 }
 
 .used-letter {
   color: $font-color-alert;
+}
+
+.guess-area-container input {
+  background-color: $background-color-main;
+  font-family: "Roboto";
+  color: $font-color-dark;
+  border-color: $background-color-alert;
+  min-height: 70px;
+  width: 250px;
+  font-size: 2em;
+  padding-left: 0px;
+  text-align: center;
+}
+
+.submit-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  width: 60px;
+  background-color: $background-color-attention;
+  box-shadow: 0 4px 8px 0 $background-color-darkest;
+  color: $font-color-lightest;
+  font-size: 2em;
+  border-radius: 50%;
+  margin: 0 25px;
 }

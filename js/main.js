@@ -2,6 +2,8 @@ var lyric;
 
 window.onload = function(){
   setupListeners();
+  lyric = generateLyric();
+  createLetterBoxes(lyric.getLyricAsArray());
 }
 
 function setupListeners(){
@@ -12,9 +14,6 @@ function setupListeners(){
   });
 
   document.getElementById("check-letter").addEventListener("click", () =>{
-    if (lyric == undefined){
-      alert("You cant guess a letter without starting a game");
-    }
     var guessElement = document.getElementById("user-guess");
     var letter = guessElement.value;
     if(lyric.checkLyric(letter)){
@@ -88,9 +87,11 @@ function generateLyric(){
 
 function createLetterBoxes(lyric){
   var existing = document.getElementById("lyrics-area");
-  while (existing.hasChildNodes()){
-    existing.removeChild(existing.lastChild);
-  }
+  var existingWrongAnswers = document.getElementById("used-letter-area");
+
+  clearBoardSection(existing);
+  clearBoardSection(existingWrongAnswers);
+
   for (var letter in lyric){
     var newElement = document.createElement("div");
     newElement.className = "lyric-letter";
@@ -128,6 +129,12 @@ function updateIncorrectLetters(letter){
   var content = document.createTextNode(letter);
   newElement.appendChild(content);
   wrongAnswers[0].appendChild(newElement);
+}
+
+function clearBoardSection(element){
+  while (element.hasChildNodes()){
+    element.removeChild(element.lastChild);
+  }
 }
 
 function clearGuess(element){

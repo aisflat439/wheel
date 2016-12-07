@@ -10,7 +10,7 @@ html {
   min-height: 100vh;
   min-width: 100%; }
 
-body, ul, li {
+body, ul, li, input {
   margin: 0px;
   padding: 0px;
   font-family: "Roboto"; }
@@ -28,7 +28,7 @@ li {
   background-color: #124e78; }
 
 .lyric-letter-container {
-  flex: 2;
+  flex: 5;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -49,17 +49,45 @@ li {
   margin: .5%; }
 
 .guess-area-container {
+  display: flex;
   flex: 1;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center; }
 
 .used-letter-container {
+  flex: 2;
+  min-height: 100px;
   display: flex;
-  flex-direction: row; }
+  flex-direction: row;
+  justify-content: center; }
 
 .used-letter {
   color: #6e0e0a; }
+
+.guess-area-container input {
+  background-color: #f0f0c9;
+  font-family: "Roboto";
+  color: #181818;
+  border-color: #f2bb05;
+  min-height: 70px;
+  width: 250px;
+  font-size: 2em;
+  padding-left: 0px;
+  text-align: center; }
+
+.submit-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  width: 60px;
+  background-color: #6e0e0a;
+  box-shadow: 0 4px 8px 0 #181818;
+  color: #f0f0c9;
+  font-size: 2em;
+  border-radius: 50%;
+  margin: 0 25px; }
 
 .header-section {
   display: flex;
