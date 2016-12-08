@@ -1,12 +1,27 @@
 var lyric;
 
+var tayLyricsObject = {
+  0: "Twenty stitches in a hospital room",
+  1: "All I know is that you drove us off the road",
+  2: "And the saddest fear comes creeping in",
+  3: "I'm dying to see how this one ends",
+  4: "If you love like that blood runs cold",
+}
+var brLyricsObject = {
+  0: "There's a flower behind the window",
+  1: "Your closet is a mess, and your backyard's falling down",
+  2: "How many angels can you fit upon a match",
+  3: "But I'm not gonna lie or sell my soul",
+  4: "We cling to you like crazy glue"
+}
+
 $(document).ready(function(){
 
-window.onload = function(){
+// window.onload = function(){
   setupListeners();
   lyric = generateLyric();
   createLetterBoxes(lyric.getLyricAsArray());
-}
+// }
 
 function setupListeners(){
 
@@ -43,21 +58,6 @@ function setupListeners(){
   footer[1].addEventListener("click", ()=> {
     window.open("https://github.com/aisflat439");
   })
-}
-
-tayLyricsObject = {
-  0: "Twenty stiches in a hospital room",
-  1: "All I know is that you drove us off the road",
-  2: "And the saddest fear comes creeping in",
-  3: "I'm dying to see how this one ends",
-  4: "If you love like that blood runs cold",
-}
-brLyricsObject = {
-  0: "There's a flower behind the window",
-  1: "Your closet is a mess, and your backyard's falling down",
-  2: "How many angels can you fit upon a match",
-  3: "But I'm not gonna lie or sell my soul",
-  4: "We cling to you like crazy glue"
 }
 
 function Lyric(value, string){
