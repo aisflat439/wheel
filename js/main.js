@@ -1,5 +1,7 @@
 var lyric;
 
+$(document).ready(function(){
+
 window.onload = function(){
   setupListeners();
   lyric = generateLyric();
@@ -74,6 +76,10 @@ function Lyric(value, string){
     }
     return false;
   }
+
+  this.checkArtist = function(){
+    return this.artist;
+  }
 }
 
 function generateLyric(){
@@ -116,11 +122,13 @@ function updateCorrectLetters(letter) {
 }
 
 function updateSolvePuzzle() {
-  console.log("I'm running");
   var lettersOnBoard = document.getElementsByClassName("lyric-letter");
   for (let i = 0; i < lettersOnBoard.length; i++){
     lettersOnBoard[i].style.color = "rgba(110, 14, 10, 1)";
   }
+  setTimeout(function(){
+    $("#correct-guess-modal").css("display", "flex")
+  }, 2000);
 }
 
 function updateIncorrectLetters(letter){
@@ -143,24 +151,34 @@ function clearGuess(element){
   element.value = "";
 }
 
+$("#tay").click(function(){
+  checkAnswer("Taylor Swift");
+})
+$("#greg").click(function(){
+  checkAnswer("Bad Religion");
+})
+
+function checkAnswer(artist){
+  if (artist !== lyric.artist){
+    // you're wrong
+    $("#answer").text("Wrong answer!");
+
+  } else {
+    // you're correct
+    $("#answer").text("You got it!");
+  }
+  hideModal();
+}
+
+function hideModal(){
+  setTimeout(function(){
+    $("#correct-guess-modal").css("display", "none")
+  }, 2000);
+}
+
 // Utitlity functions
 function getRandomNumber(min, max){
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-// document.getElementById("check-letter").addEventListener("click", () =>{
-//   var guessElement = document.getElementById("user-guess");
-//   // var solveElement = document.getElementById("solve-guess");
-//   //
-//   // if (guessElement.value === undefined){
-//   //
-//   // }
-//
-//   var letter = guessElement.value;
-//   if(lyric.checkLyric(letter)){
-//     updateCorrectLetters(letter);
-//   } else {
-//     updateIncorrectLetters(letter);
-//   }
-//   clearGuess(guessElement);
-// });
+}); // close document ready.

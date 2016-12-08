@@ -1,0 +1,45 @@
+#correct-guess-modal {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  z-index: 11;
+  background-color: black;
+  min-height: 100vh;
+  min-width: 100%;
+  padding: 75px;
+}
+
+.modal-text-section {
+  font-size: 1.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 35px;
+  background-color: $background-color-main;
+}
+
+.modal-content {
+  background-color: $background-color-main;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.artist-card-base {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.artist-image {
+  height: 400px;
+  width: 400px;
+  border-radius: 50%;
+  &#tay {
+    background: url("../assets/tay.jpg") center / cover;
+  }
+  &#greg {
+    background: url("../assets/greg.jpg") center / cover;
+  }
+}
