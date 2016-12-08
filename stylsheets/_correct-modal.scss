@@ -9,6 +9,18 @@
   padding: 75px;
 }
 
+#about-modal {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  z-index: 11;
+  background-color: black;
+  opacity: .75;
+  min-height: 100vh;
+  min-width: 100%;
+  padding: 75px;
+}
+
 .modal-text-section {
   font-size: 1.5em;
   display: flex;

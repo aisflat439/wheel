@@ -127,7 +127,7 @@ function updateSolvePuzzle() {
     lettersOnBoard[i].style.color = "rgba(110, 14, 10, 1)";
   }
   setTimeout(function(){
-    $("#correct-guess-modal").css("display", "flex")
+    $("#correct-guess-modal").css("display", "flex");
   }, 2000);
 }
 
@@ -153,10 +153,10 @@ function clearGuess(element){
 
 $("#tay").click(function(){
   checkAnswer("Taylor Swift");
-})
+});
 $("#greg").click(function(){
   checkAnswer("Bad Religion");
-})
+});
 
 function checkAnswer(artist){
   if (artist !== lyric.artist){
@@ -168,11 +168,16 @@ function checkAnswer(artist){
     $("#answer").text("You got it!");
   }
   hideModal();
+  setPlayAgain();
+}
+
+function setPlayAgain(){
+  $('#play-button').text("Play again");
 }
 
 function hideModal(){
   setTimeout(function(){
-    $("#correct-guess-modal").css("display", "none")
+    $("#correct-guess-modal").css("display", "none");
   }, 2000);
 }
 
