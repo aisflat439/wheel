@@ -17,47 +17,49 @@ var brLyricsObject = {
 
 $(document).ready(function(){
 
-// window.onload = function(){
-  setupListeners();
-  lyric = generateLyric();
-  createLetterBoxes(lyric.getLyricAsArray());
-// }
+setupListeners();
+lyric = generateLyric();
+createLetterBoxes(lyric.getLyricAsArray());
 
 function setupListeners(){
 
   document.getElementById("play-button").addEventListener("click", () => {
     lyric = generateLyric();
     createLetterBoxes(lyric.getLyricAsArray());
+    setResetBoard();
   });
 
   document.getElementById("check-letter").addEventListener("click", () =>{
     var guessElement = document.getElementById("user-guess");
     var solveElement = document.getElementById("solve-guess");
 
-    if (guessElement.value !== ""){
-      var letter = guessElement.value;
-      if(lyric.checkLyric(letter)){
-        updateCorrectLetters(letter);
-      } else {
-        updateIncorrectLetters(letter);
-      }
-    } else {
-      var guess = solveElement.value;
-      if (guess.toLowerCase() == lyric.songLyric.toLowerCase()) {
-        clearGuess(solveElement);
-        updateSolvePuzzle();
-      } else {
-        clearGuess(solveElement);
-        // make something that happens when you're wrong
-      }
+    handleGuess(guessElement, solveElement)
+  });
+
+  document.getElementById("user-guess").addEventListener("keypress", function(e){
+    var guessElement = document.getElementById("user-guess");
+    var solveElement = document.getElementById("solve-guess");
+
+    var key = e.which || e.keyCode;
+    if (key === 13) { // 13 is enter
+        handleGuess(guessElement, solveElement);
     }
-    clearGuess(guessElement);
+  });
+
+  document.getElementById("solve-guess").addEventListener("keypress", function(e){
+    var guessElement = document.getElementById("user-guess");
+    var solveElement = document.getElementById("solve-guess");
+
+    var key = e.which || e.keyCode;
+    if (key === 13) { // 13 is enter
+        handleGuess(guessElement, solveElement);
+    }
   });
 
   var footer = document.getElementsByClassName("footer-info")
   footer[1].addEventListener("click", ()=> {
     window.open("https://github.com/aisflat439");
-  })
+  });
 }
 
 function Lyric(value, string){
@@ -149,6 +151,29 @@ function clearBoardSection(element){
 
 function clearGuess(element){
   element.value = "";
+  element.focus();
+  element.select();
+}
+
+function handleGuess(guessElement, solveElement){
+  if (guessElement.value !== ""){
+    var letter = guessElement.value;
+    if(lyric.checkLyric(letter)){
+      updateCorrectLetters(letter);
+    } else {
+      updateIncorrectLetters(letter);
+    }
+  } else {
+    var guess = solveElement.value;
+    if (guess.toLowerCase() == lyric.songLyric.toLowerCase()) {
+      clearGuess(solveElement);
+      updateSolvePuzzle();
+    } else {
+      clearGuess(solveElement);
+      // make something that happens when you're wrong
+    }
+  }
+  clearGuess(guessElement);
 }
 
 $("#tay").click(function(){
@@ -173,6 +198,10 @@ function checkAnswer(artist){
 
 function setPlayAgain(){
   $('#play-button').text("Play again");
+}
+
+function setResetBoard(){
+  $('#play-button').text("Reset board");
 }
 
 function hideModal(){
